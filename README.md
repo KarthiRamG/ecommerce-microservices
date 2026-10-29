@@ -1,83 +1,134 @@
-E-Commerce Microservices
+# E-Commerce Microservices
 
 A backend project built with Java and Spring Boot to learn microservices architecture through practical implementation.
 
-Current Services
+## Current Services
 
-Product Service
+### 1. Product Service
 
-Implemented features:
+The Product Service manages product information and provides REST APIs for product operations.
 
-Create, retrieve, update and delete products
+**Implemented Features**
 
-RESTful APIs using Spring Web
+- Create a new product
+- Retrieve all products
+- Retrieve a product by ID
+- Update product details
+- Delete a product
+- Request and response DTOs
+- Request validation using Jakarta Bean Validation
+- Global exception handling
+- RESTful API development
+- API documentation using OpenAPI and Swagger UI
 
-Layered architecture: Controller, Service and Repository
+## Technology Stack
 
-Spring Data JPA and Hibernate
+- **Programming Language:** Java 17
+- **Framework:** Spring Boot
+- **Web Framework:** Spring Web
+- **Persistence:** Spring Data JPA
+- **ORM:** Hibernate
+- **Database:** MySQL
+- **Build Tool:** Maven
+- **API Documentation:** Springdoc OpenAPI and Swagger UI
+- **Version Control:** Git
+- **Code Hosting:** GitHub
 
-MySQL database integration
+*Note: Refer to `pom.xml` for the exact Spring Boot and Springdoc OpenAPI versions.*
 
-Request and response DTOs
+## Project Structure
 
-Request validation
+```text
+product-service/
+├── src/
+│   ├── main/
+│   │   ├── java/com/example/product/
+│   │   │   ├── controller/
+│   │   │   ├── dto/
+│   │   │   ├── entity/
+│   │   │   ├── exception/
+│   │   │   ├── repository/
+│   │   │   ├── service/
+│   │   │   └── ProductApplication.java
+│   │   └── resources/
+│   │       └── application.properties
+│   └── test/
+├── .gitignore
+├── mvnw
+├── mvnw.cmd
+├── pom.xml
+└── README.md
+```
 
-Global exception handling
+## Getting Started
 
-OpenAPI documentation and Swagger UI
+### Prerequisites
 
-Technology Stack
+- Java 17
+- MySQL
+- Maven Wrapper included in the project
+- Eclipse IDE or another Java IDE
 
-Java 17
+### Database Configuration
 
-Spring Boot (version specified in pom.xml)
+1. Start your MySQL server.
+2. Create the database:
 
-Spring Web
+```sql
+CREATE DATABASE product_db;
+```
 
-Spring Data JPA
+3. Configure the following environment variables in your Eclipse Run Configuration:
 
-Hibernate ORM
+```text
+DB_USERNAME=your_mysql_username
+DB_PASSWORD=your_mysql_password
+```
 
-MySQL
+4. Ensure that `application.properties` reads the credentials through environment variables rather than hardcoded passwords.
 
-Maven
+### Run the Application
 
-Springdoc OpenAPI / Swagger UI
+Run `ProductApplication.java` as a Java Application or Spring Boot App from Eclipse.
 
-Git and GitHub
+The application runs on port `8081`, according to the current configuration.
 
-Run Product Service
+## API Documentation
 
-Install Java 17 and MySQL.
+When Product Service is running, access the following endpoints:
 
-Create a MySQL database named product_db.
+- **Swagger UI:** http://localhost:8081/swagger-ui/index.html
+- **OpenAPI JSON:** http://localhost:8081/v3/api-docs
 
-Configure DB_USERNAME and DB_PASSWORD as environment variables.
+Swagger UI can be used to explore and test the Product Service REST APIs.
 
-Run the Spring Boot application.
+## Git Workflow
 
-API Documentation
+This project uses Git for version control and GitHub for source code hosting.
 
-When the application is running on port 8081:
+- Feature branches for service development
+- Meaningful commit messages
+- Incremental implementation and testing
+- Pull requests for reviewing changes before merging
 
-Swagger UI: http://localhost:8081/swagger-ui/index.html
+## Planned Enhancements
 
-OpenAPI JSON: http://localhost:8081/v3/api-docs
+The project will be extended incrementally with additional microservices and backend capabilities.
 
-Planned Enhancements
+- Inventory Service for stock management
+- Order Service for order processing
+- REST-based communication between services
+- Notification Service
+- Apache Kafka for asynchronous messaging
+- Docker-based containerization
+- Unit and integration testing
+- Resilience, logging and monitoring
 
-Inventory Service
+## Project Status
 
-Order Service
+- **Product Service:** CRUD APIs, DTOs, validation, global exception handling and Swagger documentation implemented.
+- **Inventory Service:** Planned.
+- **Order Service:** Planned.
+- **Notification Service:** Planned.
 
-Notification Service
-
-Inter-service REST communication
-
-Messaging with Kafka
-
-Docker and automated testing
-
-Project Status
-
-Product Service implemented and pushed to GitHub. Additional services will be added incrementally.
+This project is being developed incrementally to practise Java backend development and microservices architecture.
